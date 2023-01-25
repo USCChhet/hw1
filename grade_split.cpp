@@ -134,11 +134,10 @@ TEST(Split, InputSetToNull)
 	Node* list = makeList({1});
 	Node* odds = nullptr;
 	Node* evens = nullptr;
-
+	
 	split(list, odds, evens);
 
 	EXPECT_EQ(nullptr, list);
-
 	deleteList(odds);
 	deleteList(evens);
 }

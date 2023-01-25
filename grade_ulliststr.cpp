@@ -49,7 +49,7 @@ ULListStr * makeList(std::vector<std::string> const & values, bool pushBack)
 
 ULListStr * makeList(std::vector<std::string> const & values)
 {
-    return makeList(values, true);
+  return makeList(values, true);
 }
 
 
