@@ -3,9 +3,11 @@
 #include <string>
 
 #define ARRSIZE 10
-class ULListStr {
+class ULListStr 
+{
  public:
-  struct Item {
+  struct Item 
+  {
     std::string val[ARRSIZE];
     /**
      * first and last indicate the occupied/used 
@@ -113,6 +115,11 @@ class ULListStr {
    */
   void clear();
 
+
+  //---helper function-----//
+  void printAll() const;
+
+ 
  private:
   /** 
    * Returns a pointer to the item at index, loc,

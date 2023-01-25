@@ -11,13 +11,58 @@ the function below should be the only one in this file.
 */
 
 #include "split.h"
+#include <cstddef>
+#include <iostream>
 
-/* Add a prototype for a helper function here if you need */
+using namespace std;
+void doSplit(Node*& in, Node*& odds, Node*& evens)
+{
+  if(in == NULL)
+  {
+    return;
+  }
+
+  int value = in->value;
+
+  //determine if odd or even
+  if(value % 2 == 0)
+  {
+    //cout << "this is value: " << value << endl;
+    //cout << "adding onto even: "<< value << endl; 
+    //cout << endl;
+    //recursive call
+    evens = in;  
+    doSplit(in->next, odds, evens->next); 
+  }
+
+  else if(value % 2 != 0)
+  {
+    //cout << "this is value: " << value << endl;
+    //cout << "adding onto odd: " << value << endl;
+    //cout << endl;
+    //recursive call
+    odds = in;
+    doSplit(in->next, odds->next, evens);
+  }
+
+  //ensure that even node and odd node does not point to same thing
+  if(odds == evens)
+  {
+    //cout << "found something" << endl;
+    if(evens->value % 2 != 0)
+    {
+      evens = NULL;
+    }
+
+    else
+    {
+      odds = NULL;
+    }
+  }
+}
 
 void split(Node*& in, Node*& odds, Node*& evens)
 {
-  /* Add code here */
-// WRITE YOUR CODE HERE
+  doSplit(in, odds, evens);
+  in = NULL;
 }
-
-/* If you needed a helper function, write it here */
