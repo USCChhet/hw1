@@ -11,9 +11,7 @@ g++ split.cpp test_split.cpp -o test_split
 
 #include "split.h"
 #include <gtest/gtest.h>
-#include <iostream>
 
-using namespace std;
 
 Node * makeList(std::vector<int> const & content)
 {
@@ -42,34 +40,6 @@ Node * makeList(std::vector<int> const & content)
 
 }
 
-void deleteList(Node *list)
-{
-	Node * currElement = list;
-
-	while(currElement != NULL)
-	{
-		Node * nextElement = currElement->next;
-
-		cout << "deleting: " << currElement->value << endl;
-
-		delete currElement;
-
-		currElement = nextElement;
-	}
-}
-
-void print(Node* list)
-{
-  Node* temp = list;
-
-  while(temp != NULL)
-  {
-    cout << temp->value << " ";
-    temp = temp->next;
-  }
-
-	cout << endl;
-}
 
 int main(int argc, char* argv[])
 {
@@ -77,22 +47,22 @@ int main(int argc, char* argv[])
   Node* odds = NULL;
   Node* evens = NULL;
   Node* in = makeList({1, 2 , 3 , 4, 5, 6, 7});
-	cout << "pre split list: " << endl;
+	//cout << "pre split list: " << endl;
   print(in);
-	cout << endl;
+	//cout << endl;
 
   split(in, odds, evens);
 
-	cout << endl;
-	cout << "odd list: " << endl;
+	//cout << endl;
+	//cout << "odd list: " << endl;
   print(odds);
-	cout << "even list: " << endl;
+	//cout << "even list: " << endl;
   print(evens);
-	cout << endl;
+	//cout << endl;
 
-  cout << "odd list: " << endl;
+  //cout << "odd list: " << endl;
   deleteList(odds);
-	cout << "even list: " << endl;
+	//cout << "even list: " << endl;
   deleteList(evens);
 
   return 0;

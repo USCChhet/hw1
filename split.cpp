@@ -12,9 +12,7 @@ the function below should be the only one in this file.
 
 #include "split.h"
 #include <cstddef>
-#include <iostream>
 
-using namespace std;
 void doSplit(Node*& in, Node*& odds, Node*& evens)
 {
   if(in == NULL)
